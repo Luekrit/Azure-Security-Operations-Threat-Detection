@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/f3cbe0bf-3f44-49eb-b034-8b3f6a42ba1e)<h1>Azure-Security-Operations-Threat-Detection</h1>
+<h1>Azure-Security-Operations-Threat-Detection</h1>
 
  ### [YouTube Walkthrough (In prog)](https://youtube.com)
 
