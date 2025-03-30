@@ -41,7 +41,7 @@ Create Resource Group: </br>
 <img src="https://i.imgur.com/XhVuG75.png" height="80%" width="80%" alt="Azure security Operation"/>
 <br />
 <br />
-Choose Subscription, name, and Region:  <br/>
+Choose Subscription --> Resource Name --> Region:  <br/>
 <img src="https://i.imgur.com/78goWOt.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
@@ -58,7 +58,7 @@ Create Virtual Network:  <br/>
 <img src="https://i.imgur.com/7ogy6Yj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Choose resource group, give a name, choose same region and review and create:  <br/>
+Choose subscription --> resource group (same resource group)--> assign a name --> choose the same region --> review and create --> create:  <br/>
 <img src="https://i.imgur.com/9CxVRpl.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 </p>
@@ -70,31 +70,164 @@ Search Virtual Machine: </br>
 <img src="https://i.imgur.com/4DBKmZp.png" height="80%" width="80%" alt="Azure security Operation"/>
 <br />
 <br />
-Create virtual then Azure Virtual Machine:  <br/>
+Create Azure Virtual Machine:  <br/>
 <img src="https://i.imgur.com/oH71ad0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Choose subscription --> Resource Group (must be same resource group) --> Assign a machine name --> Choose Region (ideally near your onw location)  :  <br/>
+<img src="https://i.imgur.com/25Ih1cu.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Choose Window 10 pro for Image --> Choose size (be mindful to shutdown Virtual Machine after lab) :  <br/>
+<img src="https://i.imgur.com/hSLAyWm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Create username --> Create password: (Remember username and password)  <br/>
+<img src="https://i.imgur.com/z9HPwJg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Confirm Agreement --> Next: Disks <br/>
+<img src="https://i.imgur.com/mKsVyD2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+Choose OS Disk size --> Choose OS Disk type --> Next: Networking <br/>
+<img src="https://i.imgur.com/ODqdFi0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Choose Virtual Network (one we created earlier) --> Leave subnet as default <br/>
+<img src="https://i.imgur.com/joPUG0e.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Click on Delete public IP and NIC when VM is deleted --> Next: Management <br/>
+<img src="https://i.imgur.com/wAFEDyf.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Skip to monitoring --> Disable Diagnostic --> Review & Create --> Create <br/>
+<img src="https://i.imgur.com/w4bMifF.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://i.imgur.com/0xZCYOs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 </p>
 
-- Create a new Windows 10 virtual machine (choose an appropriate size). You notice the monthly cost of leaving the VM on 24/7.
-  <h5> Be mindful of shutting this off when you are done </h5>
-  <h5> Remember the Username and Password </h5>
-- Go to the Network Security Group for your virtual machine and create a rule that allows all traffic inbound
+- Disable the Network Security Group for your virtual machine and create a rule that allows all traffic inbound
+<p align="left">
+Go to Resource Group and Click on Network security Group: </br>
+<img src="https://i.imgur.com/85dpZvH.png" height="80%" width="80%" alt="Azure security Operation"/>
+<br />
+<br />
+Delete 300 inbound security rule to allow the attack <br/>
+<img src="https://i.imgur.com/BOJzr9w.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Go to Setting --> Inbound security rule --> Create <br/>
+<img src="https://i.imgur.com/Y9qe9hE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Change source (any) --> Source Port Ranges (*) --> Destination (Any) --> Service (Custom) --> Destination port ranges (*) --> Protocol (Any) --> Action (Allow) <br/>
+<img src="https://i.imgur.com/3TIw4FK.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Change Priority (100) --> Assign name of rule --> Add <br/>
+<img src="https://i.imgur.com/KwkT9h9.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+</p>
+
 - Log into your virtual machine and turn off the Windows firewall (start -> wf.msc -> properties -> all off)
+<p align="left">
+Go to Virtual Machine --> your virtual machine --> copy Public IP Address: </br>
+<img src="https://i.imgur.com/2RclG47.png" height="80%" width="80%" alt="Azure security Operation"/>
+<br />
+<br />
+Go to Search bar (in your actual PC) --> Type "Remote Desktop Connection" --> paste Public IP Address --> Connect : </br>
+<img src="https://i.imgur.com/jkR2Q5l.png" height="80%" width="80%" alt="Azure security Operation"/>
+<img src="https://i.imgur.com/1iIfL3e.png" height="80%" width="80%" alt="Azure security Operation"/>
+<br />
+<br />
+Enter Username and Password: </br>
+<img src="https://i.imgur.com/RLLIgw4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/NNKRltV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Go to Search bar (in your Virtual PC) --> Type "wf.msc" --> Click on "Window Defender firewall Properties" --> Turn firwall off on Domain, Private and Public profile  : </br>
+<img src="https://i.imgur.com/jkR2Q5l.png" height="80%" width="80%" alt="Azure security Operation"/>
+<img src="https://i.imgur.com/EUAIGkJ.png" height="80%" width="80%" alt="Azure security Operation"/>
+<br />
+<br />
+Go to Seach bar (in your actual PC) --> Type "Command Prompt" --> Type " Ping your virtual machine public ip address (ping 40.82.205.87)" </br>
+<img src="https://i.imgur.com/5fVbAqF.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/4i8Jdx1.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+</p>
 
 <h4> Step 3: Logging into the VM and inspecting logs </h4>
+- Log off your virtual machine
 
 - Try to fail log in as "employee" 3 - 4 times (with another username for Event Viewer)
+
 - Login to your virtual machine
+
 - Open Up Event Viewer and inspect the security logs.
-- Fail login should be visible in the security logs ( EventID 4625 ).
+
+- Fail login should be visible in the security logs ( EventID 4625 ). We can find source network address (where attacker is from)
+
+<img src="https://i.imgur.com/zXv5jeZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/qDL8I6K.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/K0N5YM7.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/LhBLJgW.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
 - Next, we are going to create a central log repository called a LAW
-  
+
 <h4> Step 4: Log Forwarding and KQL </h4>
 
 - Create Log Analytics Workspace
 - Create a Sentinel Instance and connect it to Log Analytics
 - Configure the “Windows Security Events via AMA” connector
 - Create the DCR within sentinel, watch for extension creation
+
+<p align="left">
+Search for Log Analytics Workspaces </br>
+<img src="https://i.imgur.com/HN0ur6U.png" height="80%" width="80%" alt="Azure security Operation"/>
+<br />
+<br />
+Click on Create <br/>
+<img src="https://i.imgur.com/yRpUAek.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Choose subscription --> Assign Resource group --> Assign Name --> Choose region --> Create + Review --> Create: <br/>
+<img src="https://i.imgur.com/PaC8BBC.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/gVepJq4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Once Log Analytics is created, search for "Sentinel" --> Create <br/>
+<img src="https://i.imgur.com/HsZWBCp.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/Zra33NK.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Select Log Analystic --> Add --> content hub --> select " Window Security Events" --> Manage <br/>
+<img src="https://i.imgur.com/zNlLM6f.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/vlFF1RN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/rMA1RkS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Select " Window Security Event via AMA" --> Open Connector page --> Create Data Connection Rule: <br/>
+<img src="https://i.imgur.com/oKf96HG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/A7Nt2Zr.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Assign Rule name --> Choose Subscription --> Assign Reosurce Group --> Choose Virtual Machine --> Next: <br/>
+<img src="https://i.imgur.com/sDcbvdg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/zby9Z1f.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+In collecting, Choose "All Security Event" --> Review + Create --> Create: <br/>
+<img src="https://i.imgur.com/hybtEZa.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/zby9Z1f.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+In Virtual Machine, Sentinel should be in "Extension + Application" --> Create: <br/>
+<img src="https://i.imgur.com/naJEye5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+</p>
+
+
 - Query for logs within the LAW
 - Now we can query the Log Analytics workspace and the SIEM to sentinel directly, which we will do soon.
        <h5> Note: Querying logs in here is a very important skill that you MUST have if you want to work in security operations. Depending on where you work, you need to know SQL, KQL, or SPL, but these are all the same thing. If you know one, you can easily learn the others </h5>
