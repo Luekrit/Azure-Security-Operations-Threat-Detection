@@ -1,7 +1,5 @@
 <h1>Azure-Security-Operations-Threat-Detection</h1>
 
- ### [YouTube Walkthrough (In prog)](https://youtube.com)
-
 <h2>Description</h2>
 We set up an essential home SOC in Azure from scratch in this project. Using a free Azure subscription, we walk through creating a virtual machine (VM), opening it to the internet as a honeypot, and forwarding logs to a central repository. We then integrate Microsoft Sentinel to analyze real-world attack data.
 <br />
