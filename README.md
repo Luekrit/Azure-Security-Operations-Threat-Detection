@@ -13,6 +13,12 @@ The purpose of this lab was to practice core SOC analyst skills, including log c
 
 ---
 
+## Portfolio Context
+
+This project supports my SOC Analyst Technical Assessment portfolio by providing hands-on evidence of log collection, Microsoft Sentinel configuration, KQL-based investigation, and failed authentication analysis.
+
+The findings from this lab can be used as a practical case study for SIEM alert triage, Event ID 4625 investigation, MITRE ATT&CK mapping, and SOC reporting.
+
 ## Project Objectives
 
 - Deploy a Windows VM honeypot in Microsoft Azure
